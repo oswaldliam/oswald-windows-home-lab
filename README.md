@@ -16,6 +16,7 @@ Establish a professional server environment for personal learning.
   - [x] Assigned a static IPv4 address and identified the Default Gateway address to start the Domain Controller setup. (Assigned a public DNS server address for now.) Used the  `ipconfig` command in Windows PowerShell to identify addresses and generate a static address. 
   - [x] Used Settings to check for and update Windows
   - [x] Assigned a custom computer name: domainControl
+  - [x] Used Computer Managment > Local Users and Groups and set the Administrator password  
  
   ### Project 1 Challenges and Resolutions
   - **Challenge**: Required IP address information in order to assign static addresses
@@ -27,8 +28,10 @@ Establish a professional server environment for personal learning.
   - [x] Used the Active Directory Domain Services Configuration Wizard to assign the forest root domain name: homelabad.home.arpa
   - [x] Set the Forest functional level and Domain functional level to Windows Server 2025
   - [x] Established Directory Service Restore Mode password
-  - [ ] Used default NetBIOS domain name and default Database/Log file/SYSVOL folders
-  - [ ] 
+  - [x] Used default NetBIOS domain name and default Database/Log file/SYSVOL folders
+  - [x] Passed prerequisite checks and proceeded with automatic restart
+  - [x] Navigated to Active Directory Users and Computers to confirm
+  
 
 ### Project 2 Challenges and Resolutions
   - **Challenge**: Required a fully qualified forest root domain name, but I didn't have a publicly registered domain name
