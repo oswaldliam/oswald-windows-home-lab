@@ -47,6 +47,7 @@ Establish a professional server environment for personal learning.
   - [x] Created a IPv4 Reverse Lookup Zone and manually added a PTR 
   - [x] Used the DC's IPv4 address in `nslookup` command to confirm
   - [x] Used the DNS Manager to enable scavenging of stale records (7 days)
+  - [x] Restricted DNS server to only listen to the DC's address
 
  ### Project 3 Challenges and Resolutions
   - **Challenge**: Initial creation of the IPv4 Reverse Lookup Zone did not return with `nslookup`
