@@ -7,16 +7,16 @@ Establish a professional server environment for personal learning.
 - **Hypervisor**: VMware Workstation Pro 25H2u1 (Type-2)
 - **Status**: Complete
 - **Steps Taken**:
-  - [x] Downloaded and installed VMware Workstation Pro 25H2u1
-  - [x] Downloaded Windows Server 2025 ISO
-  - [x] Initialized the Windows Server 2025 on VMWare Workstation
+  - [x] VMware Workstation Pro 25H2u1 downloaded and installed
+  - [x] Windows Server 2025 ISO downloaded
+  - [x] Windows Server 2025 initialized on VMWare Workstation
    <img width="346" height="265" alt="image" src="https://github.com/user-attachments/assets/8fd4ade5-ef24-449f-9be7-b551dc0c60eb" />
    
   - [x] VMware tools downloaded on the VM
-  - [x] Assigned a static IPv4 address and identified the Default Gateway address to start the Domain Controller setup. (Assigned a public DNS server address for now.) Used the  `ipconfig` command in Windows PowerShell to identify addresses and generate a static address. 
-  - [x] Used Settings to check for and update Windows
-  - [x] Assigned a custom computer name: domainControl
-  - [x] Used Computer Managment > Local Users and Groups and set the Administrator password  
+  - [x] Static IPv4 address assigned and Default Gateway address identified 
+  - [x] Updated Windows using Settings
+  - [x] domainControl assigned as custom computer name
+  - [x] Set the Administrator password in Computer Managment 
  
   ### Project 1 Challenges and Resolutions
   - **Challenge**: Required IP address information in order to assign static addresses
@@ -24,8 +24,8 @@ Establish a professional server environment for personal learning.
 ## Project 2: Initializing Active Directory
 - **Status**: Complete
 - **Steps Taken**:
-  - [x] Used the Add Roles and Features Wizard to configure and install Active Directory Domain Services to the destination server domainControl
-  - [x] Used the Active Directory Domain Services Configuration Wizard to assign the forest root domain name: homelabad.lab.local
+  - [x] Initiated Active Directory Domain Services to the destination server domainControl
+  - [x] Assigned the forest root domain name: homelabad.lab.local 
   - [x] Set the Forest functional level and Domain functional level to Windows Server 2025
   - [x] Established Directory Service Restore Mode password
   - [x] Used default NetBIOS domain name and default Database/Log file/SYSVOL folders
