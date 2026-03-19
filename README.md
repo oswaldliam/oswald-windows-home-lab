@@ -11,14 +11,17 @@ Establish a professional server environment for personal learning.
    <img width="346" height="265" alt="image" src="https://github.com/user-attachments/assets/8fd4ade5-ef24-449f-9be7-b551dc0c60eb" />
    
   - [x] Manually assigned static IPv4 address and custom computer name (domainControl)
-  - [x] OS hardened with Windows updates and assigning administrator's password
+  - [x] Manually assigned the preferred DNS address to match the static IPv4 address to ensure smooth Active Directory promotion 
+  - [x] OS hardened with Windows updates and assigning the administrator's password
  
   ### Project 1 Challenges and Resolutions
   - **Challenge**: Required IP address information in order to assign static addresses
   - **Resolution**: Use of the `ipconfig` command to identify my Default Gateway; researched how to generate a static IPv4 address based off of the Default Gateway address
+    
 ## Project 2: Initializing Active Directory
 - **Status**: Complete
 - **Steps Taken**:
+  - [x] Used Add Roles and Features Wizard to install Active Directory Domain Services 
   - [x] Established the forest root domain (homelabad.lab.local) 
   - [x] Established fundamental domain services; Forest functional level and Domain functional level to Windows Server 2025 and set the Directory Service Restore Mode password
   - [x] Defaulted on NetBIOS domain name and default Database/Log file/SYSVOL folders
@@ -30,10 +33,10 @@ Establish a professional server environment for personal learning.
 
 ### Project 2 Challenges and Resolutions
   - **Challenge**: Required a fully qualified forest root domain name, but I didn't have a publicly registered domain name
-  - **Resolution**: Research lead to using .lab.local; attempted using .home.arpa but this lead to dynamic registrations being generated in the reverse lookup zone rather than the forward.
+  - **Resolution**: Research led to using .lab.local; attempted using .home.arpa but this lead to dynamic registrations being generated in the reverse lookup zone rather than the forward lookup zone. 
 
 ## Project 3: DNS Initial Configuration 
-- **Status**: In Progress
+- **Status**: Complete
 - **Steps Taken**:
   - [x] Configured DNS Forwarder for more reliable external name resolution (8.8.8.8 dns.google)
   - [x] Created a IPv4 Reverse Lookup Zone for future utility in diagnostics and security 
@@ -42,6 +45,22 @@ Establish a professional server environment for personal learning.
   - [x] Hardened the DNS server by restricting the listener to the DC's static IPv4 address
 
  ### Project 3 Challenges and Resolutions
-  - **Challenge**: Initial creation of the IPv4 Reverse Lookup Zone did not return with `nslookup`
+  - **Challenge**: Initial `nslookup` to the Reverse Lookup Zone did not return with the host name
   - **Resolution**: Identified the reverse lookup zone did not have a PTR so one was manually added; verified resolution in both directions with `nslookup`
         
+## Project 4: Active Directory Replication and Availability 
+- **Status**: In Progress
+- **Steps Taken**:
+- [x] Established another Windows Server 2025 on VMware Workstation Pro
+- [x] Manually assigned static IPv4 address in sequence with the original DC (domainControl) and assigned a custom computer name (replicaControl)
+- [x] Manually assigned the preferred DNS address to match the static IPv4 address of domainControl and the alternate DNS address to 127.0.0.1
+- [x] Hardened the OS with Windows updates and the assignment of an administrator's password
+- [x] Joined replicaControl to the homelabad.lab.local domain to confirm connection and DNS resolution
+- [ ] Used Add Roles and Features Wizard to install Active Directory Domain Services on replicaControl
+- [ ] Promoted replica server to a Domain Controller
+
+ ### Project 4 Challenges and Resolutions
+  - **Challenge 1**: Attempted to `ping` domainControl's IPv4 address on replicaControl's command line but it could not be reached 
+  - **Resolution 1**: Research led to enabling an inbound rule (File and Printer Sharing (Echo Request - ICMPv4-In)) in domainControl's Windows Defender Firewall allowing for inbound pings
+  - **Challenge 2**: Router traffic caused DNS resolution conflicts 
+  - **Resolution 2**: Research led to updating the virtual infrastructure to an isolated VMware LAN in order to remove interference 
