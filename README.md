@@ -1,4 +1,4 @@
-# Liam Oswald's Home Lab Documentation 
+# Liam Oswald's Windows Home Lab Documentation 
 
 ## Goal:
 Establish a professional server environment for personal learning. 
@@ -51,13 +51,21 @@ Establish a professional server environment for personal learning.
 ## Project 4: Active Directory Replication and Availability 
 - **Status**: In Progress
 - **Steps Taken**:
-- [x] Established another Windows Server 2025 on VMware Workstation Pro
-- [x] Manually assigned static IPv4 address in sequence with the original DC (domainControl) and assigned a custom computer name (replicaControl)
-- [x] Manually assigned the preferred DNS address to match the static IPv4 address of domainControl and the alternate DNS address to 127.0.0.1
-- [x] Hardened the OS with Windows updates and the assignment of an administrator's password
-- [x] Joined replicaControl to the homelabad.lab.local domain to confirm connection and DNS resolution
-- [ ] Used Add Roles and Features Wizard to install Active Directory Domain Services on replicaControl
-- [ ] Promoted replica server to a Domain Controller
+  - [x] Established another Windows Server 2025 on VMware Workstation Pro
+  - [x] Manually assigned static IPv4 address in sequence with the original DC (domainControl) and assigned a custom computer name (replicaControl)
+  - [x] Manually assigned the preferred DNS address to match the static IPv4 address of domainControl and the alternate DNS address to 127.0.0.1
+  - [x] Hardened the OS with Windows updates and the assignment of an administrator's password
+  - [x] Joined replicaControl to the homelabad.lab.local domain to confirm connection and DNS resolution
+   <img width="334" height="66" alt="image" src="https://github.com/user-attachments/assets/82770cd6-7ac8-4b14-8cc2-1c74436cb804" />
+   
+   <img width="483" height="42" alt="image" src="https://github.com/user-attachments/assets/89dc4554-7c84-42ce-a5c7-506705b7b6a6" />
+
+  - [x] Used Add Roles and Features Wizard to install Active Directory Domain Services on replicaControl
+  - [x] Promoted replicaControl to a replica domain controller
+  - [x] Confirmed DNS zones and AD objects synchronized
+  <img width="509" height="153" alt="image" src="https://github.com/user-attachments/assets/7c93d445-7943-4c28-9572-e7910e793fd6" />
+
+  <img width="649" height="114" alt="image" src="https://github.com/user-attachments/assets/8a214436-a99b-44ab-b0c9-8316bd35d1b1" />
 
  ### Project 4 Challenges and Resolutions
   - **Challenge 1**: Attempted to `ping` domainControl's IPv4 address on replicaControl's command line but it could not be reached 
