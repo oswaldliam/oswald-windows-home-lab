@@ -1,4 +1,4 @@
-# Liam Oswald's Windows Home Lab Documentation 
+# Liam Oswald's Home Lab Documentation 
 
 ## Goal:
 Establish a professional server environment for personal learning. 
@@ -49,7 +49,7 @@ Establish a professional server environment for personal learning.
   - **Resolution**: Identified the reverse lookup zone did not have a PTR so one was manually added; verified resolution in both directions with `nslookup`
         
 ## Project 4: Active Directory Replication and Availability 
-- **Status**: In Progress
+- **Status**: Complete
 - **Steps Taken**:
   - [x] Established another Windows Server 2025 on VMware Workstation Pro
   - [x] Manually assigned static IPv4 address in sequence with the original DC (domainControl) and assigned a custom computer name (replicaControl)
@@ -72,3 +72,19 @@ Establish a professional server environment for personal learning.
   - **Resolution 1**: Research led to enabling an inbound rule (File and Printer Sharing (Echo Request - ICMPv4-In)) in domainControl's Windows Defender Firewall allowing for inbound pings
   - **Challenge 2**: Router traffic caused DNS resolution conflicts 
   - **Resolution 2**: Research led to updating the virtual infrastructure to an isolated VMware LAN in order to remove interference 
+
+## Project 5: Client Intergration (Manual Bootstrap)
+- **Status**: In Progress
+- **Steps Taken**:
+  - [x] Established another Windows Server 2025 on VMware Workstation Pro to serve as the client machine
+  - [x] Hardened the OS with Windows updates and the assignment of an administrator's password
+  - [x] Manually assigned static IPv4 address in sequence with the domain controllers
+  - [x] Updated client's virtual infrastructure to the same isolated VMware LAN as the domain controllers
+  - [x] Manually assigned a computer name (homelabclient) and joined it to the homelabad.lab.local domain
+  - [x] Verified domain name resolution with `nslookup` and confirmed the client identified both domain controllers
+   <img width="524" height="209" alt="image" src="https://github.com/user-attachments/assets/daa81e21-5fb8-4a60-8520-2f03207f6643" />
+
+ 
+  ### Project 5 Challenges and Resolutions
+  - **Challenge**: Client hardening with Windows updates required
+  - **Resolution**: Initially established VM in a bridged network configuration and proceeded with hardening, then went back to update the VM network configuration to share the same LAN segment as the domain controllers. 
